@@ -11,7 +11,7 @@ data class Formacao(val name: String, var conteudos: List<ConteudoEducacional>) 
     fun matricular(usuario: Usuario) {
         inscritos.add(usuario)
         println("Parabéns ${usuario.name} por fazer parte do curso de $name")
-        println("Neste curso ${usuario.name},  Você vai aprender sobre $conteudos")
+        println("Neste curso ${usuario.name},  Você vai aprender sobre $conteudos.!")
 
         // TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
     }
@@ -25,11 +25,15 @@ val user1: Usuario = Usuario(name= "José", age=22)
 val user2: Usuario = Usuario(name= "Gui", age=18)
 
 //Lista de conteúdos
-var listConteudos = mutableListOf<ConteudoEducacional>(ConteudoEducacional("Logica de Programação", Nivel.BASIC, 30),ConteudoEducacional("Flutter POO", Nivel.INTERMEDIARY, 30))
+var listConteudos = mutableListOf<ConteudoEducacional>(ConteudoEducacional("Logica de Programação", Nivel.BASIC, 30),ConteudoEducacional("Orientação a Objeto [POO]", Nivel.INTERMEDIARY, 30))
 
 var CursoFlutetr = Formacao("Desenvolvimento Flutter FullStack",listConteudos)
+var CursoJava = Formacao("Desenvolvimento Bakend Java",listConteudos)
 
-print(CursoFlutetr.matricular(user1))
+
+println(CursoFlutetr.matricular(user1))
+println(CursoJava.matricular(user2))
+
 
 
 
