@@ -1,27 +1,38 @@
-enum class Nivel { BASICO, INTERMEDIARIO, AVANCADO }
+enum class Nivel { BASIC, INTERMEDIARY, ADVANCED }
 
 class Usuario(var name: String, var age: Int )
 
-data class ConteudoEducacional(var nome: String, val duracao: Int = 30)
+data class ConteudoEducacional(var nomeConteudo: String, var Nivel: Nivel, val duration: Int = 30)
 
-data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
+data class Formacao(val name: String, var conteudos: List<ConteudoEducacional>) {
 
     val inscritos = mutableListOf<Usuario>()
     
     fun matricular(usuario: Usuario) {
         inscritos.add(usuario)
-        inscritos.count()
+        println("Parabéns ${usuario.name} por fazer parte do curso de $name")
+        println("Neste curso ${usuario.name},  Você vai aprender sobre $conteudos")
+
         // TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
     }
 }
 
- val dioCursos = mutableListOf<Formacao>()
+
 
 fun main() {
-    var Listconteudos = List<ConteudoEducacional> = (ConteudoEducacional("Logica de porgramação");
-                                                     ConteudoEducacional("Introdução a coleções");
-                                                    )
- dioCursos.add(Formacao(nome="Flutter developer", conteudos=Listconteudos))
+ //Users
+val user1: Usuario = Usuario(name= "José", age=22)
+val user2: Usuario = Usuario(name= "Gui", age=18)
+
+//Lista de conteúdos
+var listConteudos = mutableListOf<ConteudoEducacional>(ConteudoEducacional("Logica de Programação", Nivel.BASIC, 30),ConteudoEducacional("Flutter POO", Nivel.INTERMEDIARY, 30))
+
+var CursoFlutetr = Formacao("Desenvolvimento Flutter FullStack",listConteudos)
+
+print(CursoFlutetr.matricular(user1))
+
+
+
    
    
     
